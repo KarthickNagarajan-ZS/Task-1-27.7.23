@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Form</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <link href="style.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <script src="app.js"></script>
+</head>
+
+<body ng-app="formApp">
+  <div class="navbar-component" ng-controller="navbar">
+    <h3>BRAND</h3>
+    <div class="user-info" ng-show="isLoggedIn">
+      <a href="#" class="logged">My Profile</a>
+      <button class="submit-button" ng-click="logout()">Logout</button>
+    </div>
+    <div class="user-info" ng-show="isLoggedOut">
+      <button class=" login-button">Login</button>
+      <button class="signup-button">SignUp</button>
+    </div>
+  </div>
+  <div ng-controller="form">
+    <div class="form-component">
+      <h2>Login</h2>
+      <div class="form-input">
+        <form ng-submit="login()">
+          <div class="form-group">
+            <input type="text" class="input-field" ng-model="username" placeholder="Username" required>
+          </div>
+          <div class="form-group">
+            <input type="password" class="input-field" ng-model="password" placeholder="Password" required>
+          </div>
+          <button type="submit" class="submit-button">Login</button>
+        </form>
+      </div>
+      <div class="welcome" ng-show="isLoggedIn">
+        <h3>Hi {{username}}</h3>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
