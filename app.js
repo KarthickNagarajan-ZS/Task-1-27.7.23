@@ -3,13 +3,12 @@ app.controller("form", [
   "$scope",
   "$rootScope",
   function ($scope, $rootScope) {
+    let uname = "admin";
+    let pass = "1234";
     $scope.username = "";
-
     $scope.password = "";
-
     $scope.login = function () {
-      $rootScope.isLoggedOut = true;
-      if ($scope.username === "admin" && $scope.password === "1234") {
+      if ($scope.username === uname && $scope.password === pass) {
         $rootScope.isLoggedIn = true;
         $rootScope.isLoggedOut = false;
         alert("You were Logged In!!");
@@ -18,21 +17,16 @@ app.controller("form", [
         $rootScope.isLoggedOut = true;
       }
     };
-    $scope.isLoggedOut = false;
   },
 ]);
-
 app.controller("navbar", [
   "$scope",
   "$rootScope",
   function ($scope, $rootScope) {
     $scope.isLoggedIn = false;
-
     $scope.isLoggedOut = false;
-
     $rootScope.$watchGroup(["isLoggedIn", "isLoggedOut"], function (newValues) {
       $scope.isLoggedIn = newValues[0];
-
       $scope.isLoggedOut = newValues[1];
     });
     $scope.logout = function () {
